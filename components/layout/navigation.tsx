@@ -25,9 +25,10 @@ const ChevronDownIcon = (props: any) => (
 
 interface NavigationProps {
   isScrolled?: boolean
+  useColorMode?: boolean
 }
 
-const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) => {
+const Navigation: React.FC<NavigationProps> = ({ isScrolled = false, useColorMode = false }) => {
   const mobileNav = useDisclosure()
   const router = useRouter()
   const path = usePathname()
@@ -45,6 +46,15 @@ const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) => {
   useUpdateEffect(() => {
     mobileNavBtnRef.current?.focus()
   }, [mobileNav.isOpen])
+  
+  // Determine text color based on context
+  const textColor = useColorMode 
+    ? 'gray.800'  // Simple: dark text in light mode
+    : (isScrolled ? 'gray.800' : 'white')  // Scroll-based for home
+  
+  const hoverColor = useColorMode
+    ? 'gray.600'
+    : (isScrolled ? 'gray.600' : 'whiteAlpha.800')
 
   return (
     <HStack spacing="2" flexShrink={0}>
@@ -58,8 +68,8 @@ const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) => {
                 rightIcon={<ChevronDownIcon />}
                 variant="nav-link"
                 fontWeight="medium"
-                color={isScrolled ? "gray.800" : "white"}
-                _hover={{ color: isScrolled ? "gray.600" : "whiteAlpha.800" }}
+                color={textColor}
+                _hover={{ color: hoverColor }}
                 _dark={{ color: "white", _hover: { color: "whiteAlpha.800" } }}
                 display={['none', null, 'block']}
               >
@@ -96,6 +106,7 @@ const Navigation: React.FC<NavigationProps> = ({ isScrolled = false }) => {
               )
             }
             isScrolled={isScrolled}
+            useColorMode={useColorMode}
             {...props}
           >
             {props.label}

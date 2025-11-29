@@ -12,6 +12,7 @@ import {
   Button,
   FormControl,
   FormLabel,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { BackgroundGradient } from '#components/gradients/background-gradient'
@@ -19,8 +20,17 @@ import { BackgroundGradient } from '#components/gradients/background-gradient'
 const MotionBox = motion(Box as any)
 
 export default function ContactPage() {
+  const bgColor = useColorModeValue('white', 'gray.900')
+  const textColor = useColorModeValue('gray.800', 'white')
+  const mutedColor = useColorModeValue('gray.600', 'gray.400')
+  const cardBg = useColorModeValue('gray.50', 'whiteAlpha.50')
+  const inputBg = useColorModeValue('white', 'whiteAlpha.100')
+  const inputBorder = useColorModeValue('gray.300', 'whiteAlpha.300')
+  const buttonBg = useColorModeValue('#a89885', '#a89885')
+  const buttonHover = useColorModeValue('#8a7a68', '#8a7a68')
+
   return (
-    <Box position="relative" minH="100vh" overflow="hidden">
+    <Box position="relative" minH="100vh" overflow="hidden" bg={bgColor}>
       <BackgroundGradient height="100%" zIndex="-1" />
       
       <Container maxW="container.md" pt={32} pb={20} position="relative" zIndex={1}>
@@ -34,12 +44,11 @@ export default function ContactPage() {
             <Heading
               size="2xl"
               mb={4}
-              bgGradient="linear(to-r, purple.400, pink.400, blue.400)"
-              bgClip="text"
+              color={textColor}
             >
               Get In Touch
             </Heading>
-            <Text fontSize="lg" color="whiteAlpha.700">
+            <Text fontSize="lg" color={mutedColor}>
               Have questions? We'd love to hear from you.
             </Text>
           </MotionBox>
@@ -52,65 +61,87 @@ export default function ContactPage() {
             w="full"
             p={8}
             borderRadius="2xl"
-            bg="whiteAlpha.50"
+            bg={cardBg}
             backdropFilter="blur(20px)"
             borderWidth="1px"
-            borderColor="whiteAlpha.200"
+            borderColor={useColorModeValue('gray.200', 'whiteAlpha.200')}
+            boxShadow={useColorModeValue('lg', 'none')}
           >
             <VStack spacing={6} as="form">
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="full">
                 <FormControl>
-                  <FormLabel color="white">First Name</FormLabel>
+                  <FormLabel color={textColor}>First Name</FormLabel>
                   <Input
                     placeholder="John"
-                    bg="whiteAlpha.100"
-                    borderColor="whiteAlpha.300"
-                    color="white"
-                    _placeholder={{ color: 'whiteAlpha.500' }}
+                    bg={inputBg}
+                    borderColor={inputBorder}
+                    color={textColor}
+                    _placeholder={{ color: mutedColor }}
+                    _hover={{ borderColor: useColorModeValue('gray.400', 'whiteAlpha.400') }}
+                    _focus={{ 
+                      borderColor: buttonBg,
+                      boxShadow: `0 0 0 1px ${buttonBg}`
+                    }}
                   />
                 </FormControl>
                 <FormControl>
-                  <FormLabel color="white">Last Name</FormLabel>
+                  <FormLabel color={textColor}>Last Name</FormLabel>
                   <Input
                     placeholder="Doe"
-                    bg="whiteAlpha.100"
-                    borderColor="whiteAlpha.300"
-                    color="white"
-                    _placeholder={{ color: 'whiteAlpha.500' }}
+                    bg={inputBg}
+                    borderColor={inputBorder}
+                    color={textColor}
+                    _placeholder={{ color: mutedColor }}
+                    _hover={{ borderColor: useColorModeValue('gray.400', 'whiteAlpha.400') }}
+                    _focus={{ 
+                      borderColor: buttonBg,
+                      boxShadow: `0 0 0 1px ${buttonBg}`
+                    }}
                   />
                 </FormControl>
               </SimpleGrid>
 
               <FormControl>
-                <FormLabel color="white">Email</FormLabel>
+                <FormLabel color={textColor}>Email</FormLabel>
                 <Input
                   type="email"
                   placeholder="john@example.com"
-                  bg="whiteAlpha.100"
-                  borderColor="whiteAlpha.300"
-                  color="white"
-                  _placeholder={{ color: 'whiteAlpha.500' }}
+                  bg={inputBg}
+                  borderColor={inputBorder}
+                  color={textColor}
+                  _placeholder={{ color: mutedColor }}
+                  _hover={{ borderColor: useColorModeValue('gray.400', 'whiteAlpha.400') }}
+                  _focus={{ 
+                    borderColor: buttonBg,
+                    boxShadow: `0 0 0 1px ${buttonBg}`
+                  }}
                 />
               </FormControl>
 
               <FormControl>
-                <FormLabel color="white">Message</FormLabel>
+                <FormLabel color={textColor}>Message</FormLabel>
                 <Textarea
                   placeholder="Tell us how we can help..."
                   rows={6}
-                  bg="whiteAlpha.100"
-                  borderColor="whiteAlpha.300"
-                  color="white"
-                  _placeholder={{ color: 'whiteAlpha.500' }}
+                  bg={inputBg}
+                  borderColor={inputBorder}
+                  color={textColor}
+                  _placeholder={{ color: mutedColor }}
+                  _hover={{ borderColor: useColorModeValue('gray.400', 'whiteAlpha.400') }}
+                  _focus={{ 
+                    borderColor: buttonBg,
+                    boxShadow: `0 0 0 1px ${buttonBg}`
+                  }}
                 />
               </FormControl>
 
               <Button
                 size="lg"
                 w="full"
-                bg="purple.500"
+                bg={buttonBg}
                 color="white"
-                _hover={{ bg: 'purple.600' }}
+                _hover={{ bg: buttonHover }}
+                fontWeight="semibold"
               >
                 Send Message
               </Button>

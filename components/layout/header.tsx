@@ -6,6 +6,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { useScroll } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 import * as React from 'react'
 
@@ -18,6 +19,7 @@ export const Header = (props: HeaderProps) => {
   const ref = React.useRef<HTMLHeadingElement>(null)
   const [y, setY] = React.useState(0)
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
+  const pathname = usePathname()
 
   const { scrollY } = useScroll()
   React.useEffect(() => {
@@ -25,7 +27,15 @@ export const Header = (props: HeaderProps) => {
   }, [scrollY])
 
   const bg = useColorModeValue('whiteAlpha.700', 'rgba(29, 32, 37, 0.7)')
-  const isScrolled = y > 100 // Scrolled past hero section
+  
+  // Only apply scroll-based color on home page
+  const isHomePage = pathname === '/'
+  const isScrolled = isHomePage ? y > 100 : false
+  
+  // On non-home pages, use simple color mode values
+  const textColor = isHomePage 
+    ? (isScrolled ? 'gray.800' : 'white')
+    : useColorModeValue('gray.800', 'white')
 
   return (
     <Box
@@ -58,11 +68,11 @@ export const Header = (props: HeaderProps) => {
               }
             }}
             sx={{
-              color: isScrolled ? 'gray.800' : 'white',
+              color: textColor,
               _dark: { color: 'white' },
             }}
           />
-          <Navigation isScrolled={isScrolled} />
+          <Navigation isScrolled={isHomePage ? isScrolled : false} useColorMode={!isHomePage} />
         </Flex>
       </Container>
     </Box>

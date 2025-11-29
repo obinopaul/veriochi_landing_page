@@ -60,11 +60,6 @@ import pricing from '#data/pricing'
 import testimonials from '#data/testimonials'
 import { StudiosSection } from '#components/marketing/studios-section'
 
-export const meta: Metadata = {
-  title: 'Saas UI Landingspage',
-  description: 'Free SaaS landingspage starter kit',
-}
-
 const Home: NextPage = () => {
   return (
     <Box>
@@ -205,7 +200,7 @@ const HighlightsSection = () => {
         name="Renata Alink"
         description="Founder"
         avatar="/static/images/avatar.jpg"
-        gradient={['pink.200', 'purple.500']}
+        gradient={['#d4c4b0', '#a89885']}
       >
         ΓÇ£Saas UI helped us set up a beautiful modern UI in no time. It saved us
         hundreds of hours in development time and allowed us to focus on
@@ -241,7 +236,8 @@ const HighlightsSection = () => {
             <Tag
               key={value}
               variant="subtle"
-              colorScheme="purple"
+              bg="#b8a894"
+              color="white"
               rounded="full"
               px="3"
             >
