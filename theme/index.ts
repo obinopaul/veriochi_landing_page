@@ -19,7 +19,7 @@ export const theme = extendTheme(
           fontSize: 'lg',
           _dark: {
             color: 'white',
-            bg: 'gray.900',
+            bg: 'black',
           },
         },
       }),

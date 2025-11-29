@@ -13,8 +13,8 @@ export function UnicornBackground() {
             style={{
                 position: 'absolute',
                 top: 0,
-                left: 0,
-                width: '100%',
+                left: '-5%',
+                width: '110%',
                 height: '100%',
                 zIndex: 0,
                 pointerEvents: 'none',
@@ -24,7 +24,7 @@ export function UnicornBackground() {
             initial={{ opacity: 0 }}
             animate={{ 
                 opacity: 1,
-                x: x * 100, // Convert to pixels (approx) or use as is if large enough
+                x: x * 100,
                 y: y * 100
             }}
             transition={{ 

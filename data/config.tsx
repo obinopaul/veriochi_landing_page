@@ -21,8 +21,17 @@ const siteConfig = {
         label: 'Pricing',
       },
       {
-        id: 'faq',
-        label: 'FAQ',
+        label: 'Company',
+        submenu: [
+          {
+            label: 'Team',
+            href: '/company/team',
+          },
+          {
+            label: 'Contact',
+            href: '/contact',
+          },
+        ],
       },
       {
         label: 'Login',

@@ -58,6 +58,7 @@ import { Em } from '#components/typography'
 import faq from '#data/faq'
 import pricing from '#data/pricing'
 import testimonials from '#data/testimonials'
+import { StudiosSection } from '#components/marketing/studios-section'
 
 export const meta: Metadata = {
   title: 'Saas UI Landingspage',
@@ -87,7 +88,7 @@ const HeroSection: React.FC = () => {
     <Box position="relative" overflow="hidden">
       <UnicornBackground />
       <BackgroundGradient height="100%" zIndex="-1" />
-      <Container maxW="container.xl" pt={{ base: 20, lg: 30 }} pb="40" position="relative" zIndex={1}>
+      <Container maxW="container.xl" pt={{ base: 20, lg: 30 }} pb="30" position="relative" zIndex={1}>
         <Stack direction="column" alignItems="center" spacing={10}>
           <Hero
             id="home"
@@ -168,49 +169,12 @@ const HeroSection: React.FC = () => {
             </FallInPlace>
           </Box>
         </Stack>
-      </Container>
 
-      <Features
-        id="benefits"
-        columns={[1, 2, 4]}
-        iconSize={4}
-        innerWidth="container.xl"
-        pt="20"
-        features={[
-          {
-            title: 'Scribe Studio',
-            icon: FiCode,
-            description: 'AI-powered writing and documentation assistant for all your content needs.',
-            iconPosition: 'left',
-            delay: 0.6,
-          },
-          {
-            title: 'Canvas Studio',
-            icon: FiGrid,
-            description:
-              'Visual design and creative workspace where ideas come to life.',
-            iconPosition: 'left',
-            delay: 0.8,
-          },
-          {
-            title: 'Forge Studio',
-            icon: FiBox,
-            description:
-              'Product development and rapid prototyping with AI assistance.',
-            iconPosition: 'left',
-            delay: 1,
-          },
-          {
-            title: 'Code Studio',
-            icon: FiTerminal,
-            description:
-              'AI-powered coding environment that accelerates development.',
-            iconPosition: 'left',
-            delay: 1.1,
-          },
-        ]}
-        reveal={FallInPlace}
-      />
+        
+        <Box mt={72}>
+            <StudiosSection />
+        </Box>
+      </Container>
     </Box>
   )
 }
@@ -337,7 +301,7 @@ const FeaturesSection = () => {
           description:
             'Enterprise-grade security for your data and intellectual property.',
           variant: 'inline',
-        },
+          },
         {
           title: 'Team Ready.',
           icon: FiUserPlus,

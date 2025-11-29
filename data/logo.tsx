@@ -1,9 +1,7 @@
-import { chakra, HTMLChakraProps, useColorModeValue, HStack, Text, Box } from '@chakra-ui/react'
+import { chakra, HTMLChakraProps, HStack, Text, Box } from '@chakra-ui/react'
 import Image from 'next/image'
 
 export const Logo: React.FC<HTMLChakraProps<'div'>> = (props) => {
-  const textColor = useColorModeValue('gray.900', 'white')
-
   return (
     <HStack {...props} alignItems="center" spacing={2} role="group">
       <Box 
@@ -22,7 +20,7 @@ export const Logo: React.FC<HTMLChakraProps<'div'>> = (props) => {
           priority
         />
       </Box>
-      <Text fontSize="xl" fontWeight="bold" color={textColor} fontFamily="heading">
+      <Text fontSize="xl" fontWeight="bold" fontFamily="heading">
         Veriochi
       </Text>
     </HStack>

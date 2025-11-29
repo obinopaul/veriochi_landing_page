@@ -25,6 +25,7 @@ export const Header = (props: HeaderProps) => {
   }, [scrollY])
 
   const bg = useColorModeValue('whiteAlpha.700', 'rgba(29, 32, 37, 0.7)')
+  const isScrolled = y > 100 // Scrolled past hero section
 
   return (
     <Box
@@ -56,8 +57,12 @@ export const Header = (props: HeaderProps) => {
                 })
               }
             }}
+            sx={{
+              color: isScrolled ? 'gray.800' : 'white',
+              _dark: { color: 'white' },
+            }}
           />
-          <Navigation />
+          <Navigation isScrolled={isScrolled} />
         </Flex>
       </Container>
     </Box>

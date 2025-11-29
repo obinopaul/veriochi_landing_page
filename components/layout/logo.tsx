@@ -8,15 +8,16 @@ import siteConfig from '#data/config'
 export interface LogoProps {
   href?: string
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
+  sx?: any
 }
 
-export const Logo = ({ href = '/', onClick }: LogoProps) => {
+export const Logo = ({ href = '/', onClick, sx }: LogoProps) => {
   let logo
   if (siteConfig.logo) {
-    logo = <Box as={siteConfig.logo} height="32px" mt="-4px" />
+    logo = <Box as={siteConfig.logo} height="32px" mt="-4px" sx={sx} />
   } else {
     logo = (
-      <Heading as="h1" size="md">
+      <Heading as="h1" size="md" sx={sx}>
         {siteConfig.seo?.title}
       </Heading>
     )
