@@ -21,7 +21,7 @@ const Revealer = ({ children }: any) => {
 }
 
 export interface FeaturesProps
-  extends Omit<SectionTitleProps, 'title' | 'variant'>,
+  extends Omit<SectionTitleProps, 'title' | 'variant' | 'size'>,
     ThemingProps<'Features'> {
   title?: React.ReactNode
   description?: React.ReactNode

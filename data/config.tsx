@@ -7,7 +7,21 @@ const siteConfig = {
   seo: {
     title: 'Veriochi',
     description: 'The AI Workspace - Your AI. Your Files. One Workspace.',
-  } as NextSeoProps,
+    titleTemplate: '| Veriochi',
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: 'https://veriochi.com',
+      siteName: 'Veriochi',
+      title: 'Veriochi',
+      description: 'The AI Workspace - Your AI. Your Files. One Workspace.',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@veriochi',
+      creator: '@veriochi',
+    },
+  },
   termsUrl: '#',
   privacyUrl: '#',
   header: {
