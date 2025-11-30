@@ -123,24 +123,24 @@ const siteConfig = {
     features: [
       {
         icon: FiCheck,
-        title: 'Scribe Studio',
+        title: 'Docs Studio',
         description: 'AI-powered writing and documentation assistant for all your content needs.',
       },
       {
         icon: FiCheck,
-        title: 'Canvas Studio',
+        title: 'Design Studio',
         description:
           'Visual design and creative workspace where ideas come to life.',
       },
       {
         icon: FiCheck,
-        title: 'Forge Studio',
+        title: 'Chat Studio',
         description:
           'Product development and rapid prototyping with AI assistance.',
       },
       {
         icon: FiCheck,
-        title: 'Code Studio',
+        title: 'Build Studio',
         description:
           'AI-powered coding environment that accelerates development.',
       },

@@ -17,10 +17,10 @@ Unlike traditional AI tools that forget you after every session, Veriochi rememb
 
 ### 🎨 Specialized AI Studios
 Veriochi features dedicated environments for specific workflows:
-- **Scribe Studio**: For writing, documentation, and content creation.
-- **Canvas Studio**: For UI/UX design and visual assets.
-- **Forge Studio**: For product prototyping and strategy.
-- **Code Studio**: For full-stack development and engineering.
+- **Docs Studio**: For writing, documentation, and content creation.
+- **Design Studio**: For UI/UX design and visual assets.
+- **Chat Studio**: For chat, product prototyping and strategy.
+- **Build Studio**: For full-stack development and engineering.
 
 ### 🤝 Unified Workspace
 Bring your own API keys or use our managed compute. Veriochi integrates with your existing file systems and tools, creating a central hub for all your creative output.
